@@ -13,9 +13,11 @@ class HomeController extends Controller
     {
         $name = 'Alex';
 
-        Mail::send('emails.tasks', ['name' => $name], function($message) {
-            $message->to('mbowenit@gmail.com', 'Tlangelani Mboweni')
-                ->subject('You are now subscribed!');
+        $well = Mail::send('emails.tasks', ['name' => $name], function($message) {
+            $message->to('mbowenit@gmail.com')
+                ->subject('Reminder');
         });
+
+        var_dump($well);
     }
 }
